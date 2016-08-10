@@ -2,10 +2,14 @@ FROM iconoeugen/ruby-dev:latest
 MAINTAINER info@vlad.eu
 
 # install things globally, for great justice
-ENV GITLAB_REPO https://gitlab.com/gitlab-org/gitlab-ce.git
-ENV GITLAB_SHELL_REPO https://gitlab.com/gitlab-org/gitlab-shell.git
-ENV GITLAB_WORKHORSE_REPO https://gitlab.com/gitlab-org/gitlab-workhorse.git
-ENV GITLAB_DEVELOPMENT_KIT_REPO https://gitlab.com/gitlab-org/gitlab-development-kit.git
+ENV gitlab_repo ""
+#https://gitlab.com/gitlab-org/gitlab-ce.git
+ENV gitlab_shell_repo ""
+#https://gitlab.com/gitlab-org/gitlab-shell.git
+ENV gitlab_workhorse_repo ""
+#https://gitlab.com/gitlab-org/gitlab-workhorse.git
+ENV gitlab_development_kit_repo ""
+#https://gitlab.com/gitlab-org/gitlab-development-kit.git
 
 RUN dnf -y install postgresql libpqxx-devel postgresql-libs redis libicu-devel nodejs git ed cmake rpm-build gcc-c++ krb5-devel go postgresql-server postgresql-contrib zlib-devel \
     && dnf clean all

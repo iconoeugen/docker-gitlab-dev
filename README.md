@@ -3,6 +3,7 @@
 A docker image to run Gitlab development environment based on Fedora.
 
 > Based on: [iconoeugen/ruby-dev](https://hub.docker.com/r/iconoeugen/ruby-dev/)
+
 > Using: [gdk](https://gitlab.com/gitlab-org/gitlab-development-kit)
 
 ## Environment Variables
@@ -13,7 +14,7 @@ A docker image to run Gitlab development environment based on Fedora.
 
 ## Usage example
 
-After configuring the development environment as described in [iconoeugen/fedora-dev](https://hub.docker.com/r/iconoeugen/fedora-dev/), you can start
+After configuring the development environment as described in [iconoeugen/fedora-dev](https://github.com/iconoeugen/docker-gitlab-dev), you can start
 a development container as:
 
 ```

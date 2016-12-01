@@ -14,7 +14,7 @@ A docker image to run Gitlab development environment based on Fedora.
 
 ## Usage example
 
-After configuring the development environment as described in [iconoeugen/fedora-dev](https://github.com/iconoeugen/docker-gitlab-dev), you can start
+After configuring the development environment as described in [iconoeugen/fedora-dev](https://github.com/iconoeugen/docker-fedora-dev), you can start
 a development container as:
 
 ```

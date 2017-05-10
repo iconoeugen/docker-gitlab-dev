@@ -12,7 +12,9 @@ ENV gitlab_workhorse_repo ""
 # Default: https://gitlab.com/gitlab-org/gitlab-development-kit.git
 ENV gitlab_development_kit_repo ""
 
-RUN dnf -y install postgresql libpqxx-devel postgresql-libs redis libicu-devel nodejs git ed cmake rpm-build gcc-c++ krb5-devel go postgresql-server postgresql-contrib zlib-devel \
+COPY yarn.repo /etc/yum.repos.d/
+
+RUN dnf -y install postgresql libpqxx-devel postgresql-libs redis libicu-devel nodejs git ed cmake rpm-build gcc-c++ yarn krb5-devel go postgresql-server postgresql-contrib zlib-devel \
     && dnf clean all
 
 ENV PHANTOMJS_VERSION 2.1.1

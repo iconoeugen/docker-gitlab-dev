@@ -22,8 +22,10 @@ RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJ
     && mv /tmp/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs /usr/bin/ \
     && rm -rf /tmp/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64
 
-COPY entrypoint-gitlab.sh /entrypoint-gitlab.sh
+RUN ln -s /workspace/gitlab-development-kit /home/git
+
+COPY gdk-init.sh /etc/profile.d/gdk-init.sh
 
 EXPOSE 3000
 
-CMD [ "/entrypoint-gitlab.sh", "/bin/bash" ]
+CMD [ "/bin/bash" ]

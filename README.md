@@ -49,6 +49,7 @@ Run the development container that will also attach an interactive console to th
 dev run -d ${GITLAB_WORK_DIR} -e gitlab_repo="${GITLAB_REPO}" iconoeugen/gitlab-dev
 ```
 
+Development URL: (http://localhost:3000)
 Development admin account: `root` / `5iveL!fe`
 
 ## More interactive consoles
@@ -125,10 +126,7 @@ cd /workspave/gitlab-development-kit
 
 ### Check running app
 
-Navigate in a browser to Gitlab homepage:
-
-```
-http://localhost:3000/
+Navigate in a browser to Gitlab homepage: (http://localhost:3000/)
 ```
 
 ## Test
@@ -203,7 +201,7 @@ Open a new project located at:
 	2. Select Configuration Tab
 	  - Server: `Unicorn`
 	  - IP addr: `0.0.0.0`
-	  - Port: `3000`
+	  - Port: `3001`
 	  - Server args: `-c /workspace/gitlab-development-kit/gitlab/config/unicorn.rb`
 	  - Environment: `development`
 	  - Dummy app: `test/dummy`
@@ -215,4 +213,4 @@ Open a new project located at:
 
 ### Run Debug
 
-    Development: gitlab
+    Edit run configuration: `Menu -> Run -> Debug Development: gitlab

@@ -71,6 +71,8 @@ dev exec -d ${GITLAB_WORK_DIR} iconoeugen/gitlab-dev
 
 ### Run DB only
 
+The Postgresql server will not listen on the TCP Port 5432 by default, which can be changed by adding the `localhost` hostname to `postgresql` command the `-h` argument value in the `Procfile`.
+
 To start the Postgresql and Redis servers:
 
 ``` bash

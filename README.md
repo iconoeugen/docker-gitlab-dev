@@ -96,6 +96,15 @@ cd /workspace/gitlab-development-kit
 gdk reconfigure
 ```
 
+### Remove DB
+
+If you want to start with a fresh DB the you have to remove all DB data and create a new instance and reintialize the schema:
+
+``` bash
+rm -rf /workspace/gitlab-development-kit/postgresql/data
+make
+```
+
 ### Compile
 
 This is an extra dependency for openid connect:

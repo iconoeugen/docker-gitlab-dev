@@ -14,7 +14,9 @@ ENV gitlab_development_kit_repo ""
 
 COPY yarn.repo /etc/yum.repos.d/
 
-RUN dnf -y install postgresql libpqxx-devel postgresql-libs redis libicu-devel nodejs git ed cmake rpm-build gcc-c++ yarn krb5-devel go postgresql-server postgresql-contrib zlib-devel perl-Digest-SHA \
+RUN dnf -y install git ed cmake rpm-build gcc-c++ go \
+        postgresql postgresql-server postgresql-contrib libpqxx-devel postgresql-libs \
+        sqlite-devel redis libicu-devel nodejs yarn krb5-devel zlib-devel perl-Digest-SHA \
     && dnf clean all
 
 ENV PHANTOMJS_VERSION 2.1.1

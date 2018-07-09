@@ -14,7 +14,9 @@ ENV gitlab_development_kit_repo ""
 
 COPY yarn.repo /etc/yum.repos.d/
 
-RUN dnf -y install git ed cmake rpm-build gcc-c++ go \
+RUN dnf -y install fedora-repos-modular && \
+    dnf module enable postgresql:9.6 && \
+    dnf -y install git ed cmake rpm-build gcc-c++ go \
         postgresql-libs postgresql-server postgresql postgresql-contrib libpqxx-devel \
         sqlite-devel redis libicu-devel nodejs yarn krb5-devel zlib-devel perl-Digest-SHA \
     && dnf clean all

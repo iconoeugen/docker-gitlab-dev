@@ -69,7 +69,10 @@ running container:
 dev exec -d ${GITLAB_WORK_DIR} iconoeugen/gitlab-dev
 ```
 
-### Run DB only
+### Manage DB
+
+
+#### Run DB only
 
 The Postgresql server will not listen on the TCP Port 5432 by default, which can be changed by adding the `localhost` hostname to `postgresql` command the `-h` argument value in the `Procfile`.
 
@@ -79,6 +82,22 @@ To start the Postgresql and Redis servers:
 cd /workspace/gitlab-development-kit
 gdk run db
 ```
+
+#### Remove DB data
+
+If you want to start with a fresh DB the you have to remove all DB data and create a new instance and reintialize the schema:
+
+``` bash
+rm -rf /workspace/gitlab-development-kit/postgresql/data
+make
+```
+
+#### Troubleshooting
+
+- If you get the error message `FATAL:  role "postgres" does not exist` then you have to create the superuser:
+  ``` bash
+  createuser -s postgres -h localhost -p 5432
+  ```
 
 ### Update development environment
 
@@ -96,15 +115,6 @@ If the configuration files provided with Gitlab development kit you have to rege
 ``` bash
 cd /workspace/gitlab-development-kit
 gdk reconfigure
-```
-
-### Remove DB
-
-If you want to start with a fresh DB the you have to remove all DB data and create a new instance and reintialize the schema:
-
-``` bash
-rm -rf /workspace/gitlab-development-kit/postgresql/data
-make
 ```
 
 ### Compile

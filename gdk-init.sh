@@ -16,4 +16,7 @@ function gdk_install {
     #cd ${CURRENT_DIR}
 }
 
+mkdir -p ${HOME}/bin
+export PATH=${PATH}:${HOME}/bin
+
 gdk_install

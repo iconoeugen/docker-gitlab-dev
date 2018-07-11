@@ -146,6 +146,16 @@ cd /workspave/gitlab-development-kit
 
 #### Troubleshoting
 
+- Git cli not found:
+  ```
+  # curl -v http://localhost:3000
+  ...
+  > No such file or directory - /usr/local/bin/git  
+  ```
+  make sure the Git is correctly set:
+  ``` bash
+  sed -e "s|/usr/local/bin/git|/usr/bin/git|" -i /workspace/gitlab-development-kit/gitlab/config/gitlab.yml
+  ```
 - Gitaly config error:
   ```
   gitaly.1                | level=fatal msg="load config" config_path=/workspace/gitlab-development-kit/gitaly/config.toml error="load linguist colors: exit status 1; stderr: \"\""

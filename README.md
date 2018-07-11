@@ -148,7 +148,6 @@ cd /workspave/gitlab-development-kit
 ### Check running app
 
 Navigate in a browser to Gitlab homepage: (http://localhost:3000/)
-```
 
 ## Test
 

@@ -145,6 +145,18 @@ cd /workspave/gitlab-development-kit
 ./run app
 ```
 
+#### Troubleshoting
+
+- Gitaly config error:
+  ```
+  gitaly.1                | level=fatal msg="load config" config_path=/workspace/gitlab-development-kit/gitaly/config.toml error="load linguist colors: exit status 1; stderr: \"\""
+  ```
+  This can be due to missing Gem required by Gitaly:
+  ``` bash
+  cd /workspace/gitlab-development-kit/gitaly/ruby
+  bundle bundle install --without mysql production --jobs 4
+  ```
+
 ### Check running app
 
 Navigate in a browser to Gitlab homepage: (http://localhost:3000/)

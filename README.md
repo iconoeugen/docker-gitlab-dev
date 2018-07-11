@@ -71,7 +71,6 @@ dev exec -d ${GITLAB_WORK_DIR} iconoeugen/gitlab-dev
 
 ### Manage DB
 
-
 #### Run DB only
 
 The Postgresql server will not listen on the TCP Port 5432 by default, which can be changed by adding the `localhost` hostname to `postgresql` command the `-h` argument value in the `Procfile`.
@@ -156,6 +155,26 @@ cd /workspave/gitlab-development-kit
   cd /workspace/gitlab-development-kit/gitaly/ruby
   bundle bundle install --without mysql production --jobs 4
   ```
+- Rails web error:
+  ```
+  rails-web.1             | E, ERROR -- : getaddrinfo: Name or service not known (SocketError)
+  ```
+  Change hostnames to localhost:
+  ```
+  sed -e "s/port 0/port 6379/" -i /workspace/gitlab-development-kit/redis/redis.conf
+  cd /workspace/gitlab-development-kit/gitlab/config
+  mv redis.cache.yml redis.cache.yml.orig
+  cp redis.cache.yml.example redis.cache.yml
+  mv redis.queues.yml redis.queues.yml.orig
+  cp redis.queues.yml.example redis.queues.yml
+  mv redis.shared_state.yml redis.shared_state.yml.orig
+  cp redis.shared_state.yml.example redis.shared_state.yml
+  mv resque.yml resque.yml.orig
+  cp resque.yml.example resque.yml
+  mv database.yml database.yml.orig
+  cp database.yml.postgresql database.yml
+  ```
+  
 
 ### Check running app
 

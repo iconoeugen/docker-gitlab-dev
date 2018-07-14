@@ -18,13 +18,18 @@ RUN dnf -y install fedora-repos-modular && \
     dnf module enable postgresql:9.6 && \
     dnf -y install git ed cmake rpm-build gcc-c++ go \
         postgresql-libs postgresql-server postgresql postgresql-contrib libpqxx-devel \
-        sqlite-devel redis libicu-devel nodejs yarn krb5-devel zlib-devel perl-Digest-SHA \
-    && dnf clean all
+        sqlite-devel redis libicu-devel nodejs yarn krb5-devel zlib-devel perl-Digest-SHA && \
+    dnf clean all
 
 ENV PHANTOMJS_VERSION 2.1.1
 RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 | tar -xjC /tmp \
     && mv /tmp/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs /usr/bin/ \
     && rm -rf /tmp/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64
+
+# Chrome for rspec
+RUN dnf install chromedriver.x86_64 && \
+    dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
+    dnf clean all
 
 RUN ln -s /workspace/gitlab-development-kit /home/git
 

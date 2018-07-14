@@ -208,6 +208,34 @@ Navigate in a browser to Gitlab homepage: (http://localhost:3000/)
 
 - RSpec: https://www.jetbrains.com/help/ruby/8.0/using-rspec-in-ruby-projects.html
 
+### Prepare environment
+
+``` bash
+cd /workspace/gitlab-development-kit/gitlab
+chmod a+x scripts/*
+./scripts/utils.sh
+./scripts/prepare_build.sh
+./scripts/gitaly-test-spawn
+```
+
+### Compile web assets
+
+``` bash
+bundle exec rake webpack:compile
+```
+
+### Runs RSpec
+
+``` bash
+bundle exec rspec spec/lib/gitlab
+```
+
+To execute only one spec file, just provide it to the command line:
+
+``` bash
+bundle exec rspec spec/lib/gitlab/auth/o_auth/user_spec.rb
+```
+
 ## Using RubyMine
 
 RubyMine is comercial Cross-platform intelligent IDE for productive Ruby / Rails development that allows a trial phase

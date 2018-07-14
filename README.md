@@ -52,7 +52,7 @@ dev run -d ${GITLAB_WORK_DIR} -e gitlab_repo="${GITLAB_REPO}" iconoeugen/gitlab-
 Development URL: (http://localhost:3000)
 Development admin account: `root` / `5iveL!fe`
 
-## More interactive consoles
+### More interactive consoles
 
 If you want to start more interactive consoles that attache to the already running container use the command:
 
@@ -67,6 +67,16 @@ running container:
 
 ``` bash
 dev exec -d ${GITLAB_WORK_DIR} iconoeugen/gitlab-dev
+```
+
+### Start Gitlab server
+
+The Gitlab Server will be reachable at http://localhost:3000 after you execute the following commands:
+
+``` bash
+cd /workspace/gitlab-development-kit
+make update
+gdk run
 ```
 
 ### Manage DB
@@ -185,7 +195,6 @@ cd /workspave/gitlab-development-kit
   cp database.yml.postgresql database.yml
   ```
   
-
 ### Check running app
 
 Navigate in a browser to Gitlab homepage: (http://localhost:3000/)

@@ -79,6 +79,11 @@ make update
 gdk run
 ```
 
+Use the default credentials to login:
+
+- User: `root`
+- Password: `5iveL!fe`
+
 ### Manage DB
 
 #### Run DB only

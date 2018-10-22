@@ -27,8 +27,8 @@ RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJ
     && rm -rf /tmp/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64
 
 # Chrome for rspec
-RUN dnf install chromedriver.x86_64 && \
-    dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
+RUN dnf -y install chromedriver.x86_64 && \
+    dnf -y install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
     dnf clean all
 
 RUN ln -s /workspace/gitlab-development-kit /home/git

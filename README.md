@@ -113,6 +113,12 @@ make
   createuser -s postgres -h localhost -p 5432
   ```
 
+- If you get the error message `ActiveRecord::NoDatabaseError: FATAL:  database "gitlabhq_development" does not exist` then install the DB schema:
+  ``` bash
+  cd /workspace/gitlab-development-kit
+  support/bootstrap-rails
+  ```
+
 ### Update development environment
 
 If the configuration files provided with Gitlab development kit you have to regenerate all config file:
@@ -165,7 +171,7 @@ cd /workspave/gitlab-development-kit
   ```
   # curl -v http://localhost:3000
   ...
-  > No such file or directory - /usr/local/bin/git  
+  > No such file or directory - /usr/local/bin/git
   ```
   make sure the Git is correctly set:
   ``` bash
@@ -178,7 +184,7 @@ cd /workspave/gitlab-development-kit
   This can be due to missing Gem required by Gitaly:
   ``` bash
   cd /workspace/gitlab-development-kit/gitaly/ruby
-  bundle bundle install --without mysql production --jobs 4
+  bundle install --without mysql production --jobs 4
   ```
 - Rails web error:
   ```
@@ -199,7 +205,18 @@ cd /workspave/gitlab-development-kit
   mv database.yml database.yml.orig
   cp database.yml.postgresql database.yml
   ```
-  
+
+  If problem still persists, and you get the error:
+  ``` bash
+  cd /workspace/gitlab-development-kit/gitlab && bundle exec rake gettext:compile > /workspace/gitlab-development-kit/gettext.log 2>&1
+  make: *** [Makefile:107: .gettext] Error 1
+  ```
+  then add the following line to `/etc/hosts`:
+  ``` bash
+  # Gitlab development
+  127.0.0.1       postgres redis
+  ```
+
 ### Check running app
 
 Navigate in a browser to Gitlab homepage: (http://localhost:3000/)

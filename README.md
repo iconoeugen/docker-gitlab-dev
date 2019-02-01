@@ -302,11 +302,11 @@ Open a new project located at:
   1. Open Properties dialog for `Rails gitlab: development`:
   1. Import drivers from Drivers -> PostgreSQL tab (on left side)
   1. Configure Imported Data Source and test connection
-    - Host: `localhost`
-    - Port: `5432`
-    - Database: `gitlabhq_development`
-    - User: `<shell_user_name>`
-    - Password: `<empty>`
+    * Host: `localhost`
+    * Port: `5432`
+    * Database: `gitlabhq_development`
+    * User: `<shell_user_name>`
+    * Password: `<empty>`
 
 - Debug gitlab unicorn
 
@@ -318,18 +318,18 @@ Open a new project located at:
 
   Edit run configuration: `Menu -> Run -> Edit Configurations`:
   1. Open Properties dialog for ` Rails -> Development: gitlab`
-	2. Select Configuration Tab
-	  - Server: `Unicorn`
-	  - IP addr: `0.0.0.0`
-	  - Port: `3001`
-	  - Server args: `-c /workspace/gitlab-development-kit/gitlab/config/unicorn.rb`
-	  - Environment: `development`
-	  - Dummy app: `test/dummy`
-	  - Run browser: `Unchecked`
-			- `http://localhost:3001`
-			- `Unchecked` Start Javascript debuger
-	3. Bundler Tab
-	  - Run the script in context of the bundle: `Checked`
+  1. Select Configuration Tab
+    * Server: `Unicorn`
+    * IP addr: `0.0.0.0`
+    * Port: `3001`
+    * Server args: `-c /workspace/gitlab-development-kit/gitlab/config/unicorn.rb`
+    * Environment: `development`
+    * Dummy app: `test/dummy`
+    * Run browser: `Unchecked`
+      * `http://localhost:3001`
+      * `Unchecked` Start Javascript debuger
+  1. Bundler Tab
+    * Run the script in context of the bundle: `Checked`
 
 ### Run Debug
 

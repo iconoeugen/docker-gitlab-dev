@@ -177,6 +177,16 @@ cd /workspave/gitlab-development-kit
   ``` bash
   sed -e "s|/usr/local/bin/git|/usr/bin/git|" -i /workspace/gitlab-development-kit/gitlab/config/gitlab.yml
   ```
+- Bundle install fails:
+  ```
+  # make
+  ...
+  Cleaning all the gems on your system is dangerous! If you're sure you want to remove every system gem not in this bundle, run `bundle clean --force`.
+  ```
+  make sure bundler is not trying to clean gems:
+  ``` bash
+  sed -e 's|BUNDLE_CLEAN: "true"|BUNDLE_CLEAN: "false"|' -i /home/default/.gem/config
+  ```
 - Gitaly config error:
   ```
   gitaly.1                | level=fatal msg="load config" config_path=/workspace/gitlab-development-kit/gitaly/config.toml error="load linguist colors: exit status 1; stderr: \"\""

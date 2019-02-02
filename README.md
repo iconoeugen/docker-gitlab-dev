@@ -185,6 +185,11 @@ cd /workspave/gitlab-development-kit
   ``` bash
   cd /workspace/gitlab-development-kit/gitaly/ruby
   bundle install --without mysql production --jobs 4
+  bundle update
+  cd /workspace/gitlab-development-kit/gitaly/src/gitlab.com/gitlab-org/gitaly
+  make
+  cd /workspace/gitlab-development-kit/gitaly/src/gitlab.com/gitlab-org/gitaly-proto
+  make
   ```
 - Rails web error:
   ```
@@ -204,6 +209,9 @@ cd /workspave/gitlab-development-kit
   cp resque.yml.example resque.yml
   mv database.yml database.yml.orig
   cp database.yml.postgresql database.yml
+
+  mv /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.orig
+  cp /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.example /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml
   ```
 
   If problem still persists, and you get the error:
@@ -230,8 +238,8 @@ Navigate in a browser to Gitlab homepage: (http://localhost:3000/)
 ``` bash
 cd /workspace/gitlab-development-kit/gitlab
 chmod a+x scripts/*
-./scripts/utils.sh
-./scripts/prepare_build.sh
+. ./scripts/utils.sh
+#./scripts/prepare_build.sh
 ./scripts/gitaly-test-spawn
 ```
 

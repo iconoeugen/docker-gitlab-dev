@@ -29,7 +29,8 @@ RUN dnf -y install chromedriver.x86_64 && \
     dnf -y install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm && \
     dnf clean all
 
-RUN ln -s /workspace/gitlab-development-kit /home/git
+RUN ln -s /workspace/gitlab-development-kit /home/git && \
+    ln -s /usr/bin/git /usr/local/bin/git
 
 COPY gdk-init.sh /etc/profile.d/gdk-init.sh
 

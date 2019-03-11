@@ -203,6 +203,7 @@ cd /workspave/gitlab-development-kit
   ```
   If the following error occures:
   ```
+  Could not find grpc-tools-1.0.1 in any of the sources
   ```
   then execute the command and retry previous steps:
   ```

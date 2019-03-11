@@ -215,7 +215,7 @@ cd /workspave/gitlab-development-kit
   rails-web.1             | E, ERROR -- : getaddrinfo: Name or service not known (SocketError)
   ```
   Change hostnames to localhost:
-  ```
+  ```bash
   sed -e "s/port 0/port 6379/" -i /workspace/gitlab-development-kit/redis/redis.conf
   cd /workspace/gitlab-development-kit/gitlab/config
   mv redis.cache.yml redis.cache.yml.orig
@@ -228,11 +228,7 @@ cd /workspave/gitlab-development-kit
   cp resque.yml.example resque.yml
   mv database.yml database.yml.orig
   cp database.yml.postgresql database.yml
-
-  mv /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.orig
-  cp /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.example /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml
   ```
-
   If problem still persists, and you get the error:
   ``` bash
   cd /workspace/gitlab-development-kit/gitlab && bundle exec rake gettext:compile > /workspace/gitlab-development-kit/gettext.log 2>&1
@@ -242,6 +238,18 @@ cd /workspave/gitlab-development-kit
   ``` bash
   # Gitlab development
   127.0.0.1       postgres redis
+  ```
+
+- Gitaly connect error:
+  ```
+  Failed to connect to Gitaly...
+  Error: 14:Connect Failed
+  `´`
+  Change connect socket:
+  ```bash
+  mv /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.orig
+  cp /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.example /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml
+  sed -e "s|\(.*gitaly_address: unix:\).*|\1/workspace/gitlab-development-kit/gitaly.socket||" -i /workspace/gitlab-development-kit/gitlab/config/gitlab.yml
   ```
 
 ### Check running app

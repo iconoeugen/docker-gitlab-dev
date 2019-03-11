@@ -201,6 +201,14 @@ cd /workspave/gitlab-development-kit
   cd /workspace/gitlab-development-kit/gitaly/src/gitlab.com/gitlab-org/gitaly-proto
   make
   ```
+  If the following error occures:
+  ```
+  ```
+  then execute the command and retry previous steps:
+  ```
+  cd /workspace/gitlab-development-kit/gitaly/src/gitlab.com/gitlab-org/gitaly-proto/_support
+  bundle install
+  ```
 - Rails web error:
   ```
   rails-web.1             | E, ERROR -- : getaddrinfo: Name or service not known (SocketError)
@@ -247,9 +255,8 @@ Navigate in a browser to Gitlab homepage: (http://localhost:3000/)
 
 ``` bash
 cd /workspace/gitlab-development-kit/gitlab
-chmod a+x scripts/*
 . ./scripts/utils.sh
-#./scripts/prepare_build.sh
+. ./scripts/prepare_build.sh
 ./scripts/gitaly-test-spawn
 ```
 

@@ -365,15 +365,16 @@ Open a new project located at:
   1. Bundler Tab
     * Run the script in context of the bundle: `Checked`
 
-### Run Debug
+  ### Run Debug
 
-    Edit run configuration: `Menu -> Run -> Debug Development: gitlab
+  Edit run configuration: `Menu -> Run -> Debug Development: gitlab
     
-#### Troubleshooting
+  #### Troubleshooting
 
-    If the debuger complanis about missing symbol `ibf_load_iseq_complete` then try:
+  If the debuger complanis about missing symbol `ibf_load_iseq_complete` then try:
     
-    ``` bash
-    gem install  debase -v 0.2.3.beta5
-    gem uninstall --user-install ruby-debug-ide    
-    ``` 
+  ``` bash
+  gem install debase -v 0.2.3.beta5
+  gem install ruby-debug-ide -v 0.7.0.beta7  
+  gem uninstall --user-install ruby-debug-ide    
+  ``` 

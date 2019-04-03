@@ -367,7 +367,7 @@ Open a new project located at:
 
   ### Run Debug
 
-  Edit run configuration: `Menu -> Run -> Debug Development: gitlab
+  Edit run configuration: `Menu -> Run -> Debug Development: gitlab`
     
   #### Troubleshooting
 

@@ -368,3 +368,12 @@ Open a new project located at:
 ### Run Debug
 
     Edit run configuration: `Menu -> Run -> Debug Development: gitlab
+    
+#### Troubleshooting
+
+    If the debuger complanis about missing symbol `ibf_load_iseq_complete` then try:
+    
+    ``` bash
+    gem install  debase -v 0.2.3.beta5
+    gem uninstall --user-install ruby-debug-ide    
+    ``` 

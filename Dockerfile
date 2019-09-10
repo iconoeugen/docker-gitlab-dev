@@ -14,7 +14,7 @@ ENV gitlab_development_kit_repo ""
 
 COPY yarn.repo /etc/yum.repos.d/
 
-RUN dnf -y install git ed cmake rpm-build gcc-c++ go \
+RUN dnf -y install rsync abrt git ed cmake rpm-build gcc-c++ go \
         postgresql-libs postgresql-server postgresql postgresql-contrib libpqxx-devel mysql-devel \
         sqlite-devel redis libicu-devel nodejs yarn krb5-devel zlib-devel perl-Digest-SHA && \
     dnf clean all

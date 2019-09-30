@@ -34,7 +34,7 @@ copy-paste in following sections:
 
 ``` bash
 export GITLAB_WORK_DIR=~/work/gitlab/hvlad/gitlab-development-kit
-export GITLAB_REPO=https://gitlab.com/hvlad/gitlab-ce.git
+export GITLAB_REPO=https://gitlab.com/hvlad/gitlab.git
 ```
 
 Prepare the development environment on the host system:
@@ -272,7 +272,11 @@ cd /workspace/gitlab-development-kit/gitlab
 ### Compile web assets
 
 ``` bash
-bundle exec rake webpack:compile
+export NODE_OPTIONS=" --max_old_space_size=4096 "
+cd /workspace/gitlab-development-kit/gitlab
+bundle exec rake yarn:install
+bundle exec rake gitlab:assets:compile
+#bundle exec rake webpack:compile
 ```
 
 ### Runs RSpec

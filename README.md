@@ -244,12 +244,12 @@ cd /workspave/gitlab-development-kit
   ```
   Failed to connect to Gitaly...
   Error: 14:Connect Failed
-  `´`
+  ```
   Change connect socket:
   ```bash
   mv /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.orig
   cp /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml.example /workspace/gitlab-development-kit/gitlab/tmp/tests/gitaly/config.toml
-  sed -e "s|\(.*gitaly_address: unix:\).*|\1/workspace/gitlab-development-kit/gitaly.socket||" -i /workspace/gitlab-development-kit/gitlab/config/gitlab.yml
+  sed -e "s|\(.*gitaly_address: unix:\).*|\1/workspace/gitlab-development-kit/gitaly.socket|" -i /workspace/gitlab-development-kit/gitlab/config/gitlab.yml
   ```
 
 ### Check running app
